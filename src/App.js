@@ -1,11 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
-import Entregar from './Components/Views/Tareas/EntregarTareas';
+import "./App.css";
+import Entregar from "./components/screens/Tareas/EntregarTareas/EntregarTareas";
 
 function App() {
-  return (
-      <Entregar></Entregar>
-  );
+  return <Entregar></Entregar>;
 }
 
 export default App;
