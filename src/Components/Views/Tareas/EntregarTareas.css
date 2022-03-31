@@ -1,0 +1,143 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: Century 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+body{
+    background-color: rgb(218, 218, 218);
+}
+
+.container{
+    background-color: rgba(204, 204, 204, 0);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.container-body{
+    background-color: rgba(255, 255, 255, 0);
+    margin-top: 30px;
+    padding: 5px;
+    width: 90%;
+    min-height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+
+.descripcion-tarea{
+    background-color: rgb(255, 255, 255);
+    height: 500px;
+    width: 400px;
+    float: left;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.entregable-tarea{
+    background-color:rgb(255, 255, 255);
+    height: 500px;
+    float: left;
+    width: 900px;
+    margin-left: 10px;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.titulo{
+    color: rgb(107, 107, 107);
+}
+.subtitulo{
+    color: rgb(78, 78, 78);
+    padding-top: 5px;
+}
+
+.descripcion{
+    text-align: justify;
+    padding-top: 5px;
+}
+
+.puntaje{
+    color: rgb(93, 93, 196);
+    padding-top: 5px;
+}
+
+.tiempo-restante{
+    color: rgb(241, 35, 35);
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+
+.btn-up{
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: white;
+    background-color: #3692ee;
+    border:3px solid #3692ee;
+    font-size: medium;
+}
+.btn-cancel{
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    color: #3692ee;
+    background-color: white;
+    border: 3px solid #3692ee;
+    font-size: medium;
+}
+.btn-cancel:active{
+    background-color: rgb(163, 161, 161);
+    color: white;
+}
+.btn-up:active{
+    background-color: rgb(163, 161, 161);
+    color: #ffffff;
+    border:3px solid rgb(163, 161, 161);
+}
+.btn-group{
+    padding-top: 3rem;
+
+}
+
+/* DRAG AND DROP */
+
+
+.file-upload-content {
+    display: none;
+    text-align: center;
+}
+.file-upload-input {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    opacity: 0;
+    cursor: pointer;
+}
+.image-upload-wrap {
+    position: relative;
+    height: 300px;
+    border: 4px solid #8eb0d1;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 8px;
+}
+.image-upload-wrap:hover {
+    background-color: transparent;
+    border: 4px dashed #3692ee;
+}
+.text-information {
+    margin-top: 100px;
+    text-align: center;
+}
