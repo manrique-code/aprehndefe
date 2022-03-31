@@ -18,8 +18,9 @@ const Button = ({ label, icon, title, size = "md", type = "primary" }) => {
 Button.propTypes = {
   label: PropTypes.string,
   icon: PropTypes.object,
-  type: PropTypes.oneOf(["primary", "secondary", "terciary"]),
   size: PropTypes.oneOf(["sm", "md", "lg"]),
+  title: PropTypes.string,
+  type: PropTypes.oneOf(["primary", "secondary", "terciary"]),
 };
 
 export default Button;
