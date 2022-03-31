@@ -1,26 +1,68 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import "./EntregarTareas.css";
-import { publicAxios } from "../../../Lib/apiClient";
+import { privateAxios, publicAxios } from "../../../Lib/apiClient";
 
 const Entregar =()=>{
-    
-    const [ImageSelectedPrevious, setImageSelectedPrevious] = useState(null);
+    const id = "6225659f6208d12d1cdce801"
+    const [descripcion, setDescripcion] = useState("");
+    const [titulo, setTitulo] = useState("");
+    const [puntaje, setPuntaje] = useState("");
+    const [tiempo,setTiempo] = useState("");
+    const [archivo,setArchivo] = useState(null);
     const changeFile = (e) => {
-        console.log(e.target.files);
+        console.log(e.target.files[0]);
         if (e.target.files[0] !== undefined) {
             //ENVIAR ARCHIVO
         }
     };
 
-    const getTareas= async(e)=>{
-        const params = {
-                id:"6225659f6208d12d1cdce801"
-        }
-        const data = await publicAxios.get(
-            '/api/v1/tareas/alltareas/',{params}
-        ).then((response)=>{console.log(response)})
-        .catch((response)=>{console.log(response)})
+    //Obtener el tiempo restante segun la fecha de asignacion de la tarea
+    const tiempoRestante = (fecha)=>{
+        const fechaA = new Date(Date.now());
+        const fechaE = new Date(fecha)
+        const dif = fechaE.getTime()-fechaA.getTime();
+        const difer = dif/(1000*3600*24)
+        const dias = Math.floor(difer)
+        const horas = Math.floor((difer-dias)*24)
+        const minutos = Math.floor(((((difer-dias)*24)-horas)*60))
+        const strRestante = `${dias} ${dias>1 || dias==0?'Dias':'Dia'}  ${horas} ${horas>=1?'Horas':'Hora'}  ${minutos} Minutos`
+        return strRestante;
     }
+
+    //TODOS LOS DATOS DE ESTE USEEFFECT DEBEN PROVEERLOS LA PAGINA ANTERIOR
+    useEffect(() => {
+        
+        const loadTarea = async(e)=>{ 
+            const data = await privateAxios.get(
+                '/api/v1/tareas/alltareas',{
+                    params : {
+                        id:id,
+                    }
+                }
+            ).then((response)=>{
+                const tarea = response.data.rslt[0];
+                //console.log(tarea)
+                setTitulo(tarea.info.titulo)
+                setDescripcion(tarea.info.descripcion)
+                setPuntaje(tarea.info.Puntaje)
+                setTiempo(tiempoRestante(tarea.fechaEntrega))
+
+
+            })
+            .catch((response)=>{console.log(response)})
+    
+        }
+        loadTarea();
+      
+    }, [])
+
+    const clickEntregar = async() =>{
+        const tarea = await privateAxios.put("/api/v1/tareas/newentregable",{
+
+        })
+    }
+    
+    
 
     return(
         <>  
@@ -29,21 +71,21 @@ const Entregar =()=>{
                     
                         <div className="descripcion-tarea">
                             <h2 className="titulo">Entregar Tarea:</h2>
-                            <h2 className="titulo">Funcion Fibonacci</h2>
+                            <h2 className="titulo">{titulo}</h2>
                             <br/>
                             <h3 className="subtitulo">Descripción</h3>  
                             <p className="descripcion">
-                            uedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.
+                                {descripcion}
                             </p>
                             <br/>
                             <h3 className="subtitulo">Valor</h3>
                             <p className="puntaje">
-                                40 Puntos
+                                {puntaje} Puntos
                             </p>
                             <br/>
                             <h3 className="subtitulo">Tiempo Restante</h3> 
                             <p className="tiempo-restante">
-                                1 Hora 59 minutos
+                                {tiempo}
                             </p>
                         </div>
 
@@ -73,9 +115,9 @@ const Entregar =()=>{
                             <div className="btn-group">
                                 <button className="btn-cancel">Cancelar</button>
                                 <button className="btn-up"
-                                    onClick={(e)=>{
-                                        getTareas(e);
-                                    }}
+                                    // onClick={(e)=>{
+                                    //     // getTareas(e);
+                                    // }}
                                 >Enviar Tarea</button>
                                 
                             </div>
