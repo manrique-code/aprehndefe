@@ -34,7 +34,7 @@ body{
 
 .descripcion-tarea{
     background-color: rgb(255, 255, 255);
-    height: 500px;
+    height: 600px;
     width: 400px;
     float: left;
     padding: 40px;
@@ -43,7 +43,7 @@ body{
 
 .entregable-tarea{
     background-color:rgb(255, 255, 255);
-    height: 500px;
+    height: 600px;
     float: left;
     width: 900px;
     margin-left: 10px;
@@ -94,6 +94,29 @@ body{
     border: 3px solid #3692ee;
     font-size: medium;
 }
+.btn-update{
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    color: white;
+    background-color: #008127;
+    border:3px solid #008127;
+    font-size: medium;
+}
+
+.btn-del{
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    color: white;
+    background-color: rgb(241, 35, 35);
+    border:3px solid rgb(112, 18, 18);
+    font-size: medium;
+}
+
+
 .btn-cancel:active{
     background-color: rgb(163, 161, 161);
     color: white;
@@ -103,6 +126,12 @@ body{
     color: #ffffff;
     border:3px solid rgb(163, 161, 161);
 }
+.btn-update:active{
+    background-color: rgb(163, 161, 161);
+    color: #ffffff;
+    border:3px solid rgb(163, 161, 161);
+}
+
 .btn-group{
     padding-top: 3rem;
 
@@ -140,4 +169,16 @@ body{
 .text-information {
     margin-top: 100px;
     text-align: center;
+}
+
+.entregado{
+    font-weight: bold;
+    color: rgb(57, 114, 57);
+    font-size: larger;
+}
+
+.pendiente{
+    font-weight: bold;
+    color: rgb(241, 35, 35);
+    font-size: large;
 }
