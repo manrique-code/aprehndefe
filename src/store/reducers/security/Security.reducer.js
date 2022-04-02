@@ -1,3 +1,4 @@
+import { setJWT } from "../../../lib/apiClient";
 const defaultSecurity = {
   jwToken: "",
   user: {
@@ -6,17 +7,22 @@ const defaultSecurity = {
     tipo: "",
   },
   errors: [],
+  isLoading: false,
 };
 
 export const SecurityReducer = (state = defaultSecurity, action) => {
-  const { type, payload } = action || {};
+  const { type, payload } = action;
   switch (type) {
     case "ON_LOGIN_LOADING":
-      break;
+      return {
+        ...state,
+        isLoading: true,
+      };
     case "ON_LOGIN_SUCCESS":
-      break;
+      setJWT(payload.jwToken);
+      return { ...state, ...payload, isLoading: false };
     case "ON_LOGIN_ERROR":
-      break;
+      return { ...state, errors: payload.errors, isLoading: false };
     default:
       return state;
   }
