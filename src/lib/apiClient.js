@@ -23,9 +23,6 @@ privateAxios.defaults.headers.common["cache-contro"] = "no-cache";
 publicAxios.defaults.headers.common["Content-Type"] = "application/json";
 privateAxios.defaults.headers.common["Content-Type"] = "application/json";
 
-publicAxios.defaults.headers.common['Content-Type'] = 'application/json'
-privateAxios.defaults.headers.common['Content-Type'] = 'application/json'
-
-// export const setJWT = ( jwt ) =>{
-//     privateAxios.defaults.headers.common['Authorization'] = `Bearer ${jwt}`;
-// }
+export const setJWT = (jwt) => {
+  privateAxios.defaults.headers.common["Authorization"] = `Bearer ${jwt}`;
+};
