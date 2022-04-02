@@ -18,7 +18,7 @@
   border-radius: 0.625rem;
   box-sizing: border-box;
   padding: 1.5em;
-  margin: 0.5em 1em;
+  margin: 0.5em 0em;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -27,6 +27,7 @@
   height: 1em;
   font-weight: bold;
   overflow: hidden;
+  text-decoration: none;
 }
 
 /* Primary style of button */
@@ -75,8 +76,12 @@
   color: var(--button-terciary-color);
   text-decoration: none;
   transition: text-decoration var(--animation-time) var(--animation-button-bg);
-  padding: 1em 0.5em;
+  padding: 0em;
+  display: inline;
+  height: 1em;
+  align-items: flex-start !important;
 }
+
 .terciary:hover,
 .terciary:focus {
   text-decoration: underline;
@@ -92,6 +97,5 @@
   width: 11.25rem;
 }
 .lg {
-  font-size: 1.5rem;
-  width: 15.9375rem;
+  width: 100%;
 }
