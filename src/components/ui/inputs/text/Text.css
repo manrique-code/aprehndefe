@@ -1,0 +1,73 @@
+:root {
+  --button-primary-background: #0071e3;
+  --button-hover-primary-background: hsl(210, 100%, 50%);
+  --button-secondary-background: white;
+  --button-hover-secondary-background: rgba(219, 72, 57, 0.2);
+  --button-primary-color: white;
+  --button-secondary-color: #db4839;
+  --input-background-color: #f4f3f4;
+  --input-border-color: #f0f0f0;
+
+  --animation-time: 0.4s;
+  --animation-style: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  --animation-button-bg: ease-in-out;
+}
+
+.lbl-input {
+  font-size: 1rem;
+  margin-bottom: 0.625rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-input-component-container {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 25rem;
+}
+
+.text-input-component-container.ancho-completo {
+  width: 100%;
+}
+
+.text-input-component {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+}
+
+.text-input-component > .input-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--input-border-color);
+  padding: 1rem !important;
+  border-radius: 5px;
+  background-color: var(--input-background-color);
+}
+
+.focus-input {
+  border: 1px solid var(--button-primary-background) !important;
+}
+
+.input-icon {
+  color: var(--button-primary-background);
+}
+
+.text-input-component > .input-container > .input {
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  padding: none;
+  border: none;
+  background-color: transparent;
+  caret-color: var(--button-primary-background);
+}
+
+.input:focus {
+  border: none;
+  outline: none;
+}
