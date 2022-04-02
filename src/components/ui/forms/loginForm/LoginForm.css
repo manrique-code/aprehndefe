@@ -1,0 +1,22 @@
+.login-form-container {
+  padding: 1.25rem;
+  width: 100%;
+}
+
+.login-form-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.separator {
+  height: 1px;
+  background-color: #e0e0e0;
+  width: 100%;
+  margin: 1rem auto;
+}
+
+.login-form-signin {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
