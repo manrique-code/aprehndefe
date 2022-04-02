@@ -3,8 +3,11 @@
   --button-hover-primary-background: hsl(210, 100%, 50%);
   --button-secondary-background: white;
   --button-hover-secondary-background: rgba(219, 72, 57, 0.2);
+  --button-terciary-background: transparent;
+  --button-hover-terciary-background: rgba(0, 113, 227, 0.2);
   --button-primary-color: white;
   --button-secondary-color: #db4839;
+  --button-terciary-color: #0071e3;
 
   --animation-time: 0.4s;
   --animation-style: cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -15,7 +18,7 @@
   border-radius: 0.625rem;
   box-sizing: border-box;
   padding: 1.5em;
-  margin: 0.5em 1em;
+  margin: 0.5em 0em;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -24,6 +27,7 @@
   height: 1em;
   font-weight: bold;
   overflow: hidden;
+  text-decoration: none;
 }
 
 /* Primary style of button */
@@ -65,6 +69,24 @@
   transform: translateX(0em);
 }
 
+/* Terciary style of button */
+.terciary {
+  background-color: var(--button-terciary-background);
+  border: 1px solid var(--button-terciary-background);
+  color: var(--button-terciary-color);
+  text-decoration: none;
+  transition: text-decoration var(--animation-time) var(--animation-button-bg);
+  padding: 0em;
+  display: inline;
+  height: 1em;
+  align-items: flex-start !important;
+}
+
+.terciary:hover,
+.terciary:focus {
+  text-decoration: underline;
+}
+
 /* Sizes */
 .sm {
   font-size: 0.75rem;
@@ -75,6 +97,5 @@
   width: 11.25rem;
 }
 .lg {
-  font-size: 1.5rem;
-  width: 15.9375rem;
+  width: 100%;
 }
