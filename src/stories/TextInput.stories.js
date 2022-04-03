@@ -1,7 +1,7 @@
 import Text from "../components/ui/inputs/text/Text";
 
 export default {
-  title: "Text Input",
+  title: "Components/UI/Text Input",
   component: Text,
 };
 

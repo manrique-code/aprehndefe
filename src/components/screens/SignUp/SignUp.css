@@ -1,0 +1,26 @@
+:root {
+  --button-primary-background: #0071e3;
+  --button-hover-primary-background: hsl(210, 100%, 50%);
+  --button-secondary-background: white;
+  --button-hover-secondary-background: rgba(219, 72, 57, 0.2);
+  --button-terciary-background: transparent;
+  --button-hover-terciary-background: rgba(0, 113, 227, 0.2);
+  --button-primary-color: white;
+  --button-secondary-color: #db4839;
+  --button-terciary-color: #0071e3;
+
+  --animation-time: 0.4s;
+  --animation-style: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  --animation-button-bg: ease-in-out;
+}
+
+.signup-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  height: 100vh;
+}
+
+.signup-form-high-order {
+  overflow-y: scroll;
+  grid-column: 2 / -2;
+}

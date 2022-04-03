@@ -47,6 +47,7 @@
   padding: 1rem !important;
   border-radius: 5px;
   background-color: var(--input-background-color);
+  transition: border 0.4s var(--animation-button-bg);
 }
 
 .focus-input {
@@ -54,7 +55,12 @@
 }
 
 .input-icon {
+  color: black;
+}
+.input-icon.focus-input {
   color: var(--button-primary-background);
+  border: none;
+  outline: none;
 }
 
 .text-input-component > .input-container > .input {
