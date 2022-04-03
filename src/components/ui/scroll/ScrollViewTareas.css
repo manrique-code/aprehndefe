@@ -1,0 +1,83 @@
+.scrollTareas{
+    background-color:rgb(255, 255, 255);
+    height: 90%;
+    float: left;
+    width: 97%;
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.itemScroll{
+    margin-top: 10px;
+    border-radius: 10px;
+    height:120px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center
+}
+
+.itemScroll div:nth-child(1){
+    float: left;
+    width: 60%;
+    padding-left:50px ;
+}
+.itemScroll div:nth-child(2){
+    float: left;
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.itemScroll div input{
+    display:block;
+    padding: 0px;
+    width: 20%;
+    height: 40px;
+    text-align: center;
+    border: 2px solid rgb(51, 111, 240);
+    border-radius: 10px;
+    float: left;
+}
+
+
+.btn-download{
+    width: 30%;
+    margin: 10px;
+    padding: 5px;
+    font-family: DM;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: white;
+    color: rgb(51, 111, 240);
+    border-radius: 7px;
+    border: 2px dashed rgb(51, 111, 240);
+}
+
+.btn-download :hover{
+    background-color: rgb(56, 56, 56);
+}
+
+.btn-eval{
+    width: 30%;
+    height: 40px;
+    padding: 5px;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(51, 111, 240);
+    color: white;
+    font-family: DM;
+    border: 2px solid rgb(30, 63, 134);
+    border-radius: 7px;
+}
+
+.btn-eval :active{
+    background-color: rgb(121, 121, 121);
+}

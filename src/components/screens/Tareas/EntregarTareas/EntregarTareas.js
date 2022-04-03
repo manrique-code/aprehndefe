@@ -5,7 +5,7 @@ import { privateAxios, publicAxios } from "../../../../lib/apiClient";
 const Entregar =()=>{
     const idClase = "6225659f6208d12d1cdce801"
     const idEstudiante = "622541aef1bd3418216d8831"
-    const numTarea = "HW17_3_638" //HW17_3_902 //HW17_3_638
+    const numTarea = "HW17_3_638"    //HW17_3_580 //HW17_3_902 //HW17_3_638
 
     const [descripcion, setDescripcion] = useState("");
     const [titulo, setTitulo] = useState("");
@@ -97,8 +97,8 @@ const Entregar =()=>{
         var error = false;
         const tarea = await privateAxios.put("/api/v1/tareas/newentregable",{
             params:{
-                idclas:"6225659f6208d12d1cdce801", 
-                idest:"622541aef1bd3418216d8831"
+                idclas:idClase, 
+                idest:idEstudiante,
             },
             body:{
                 numeroTarea: numTarea, 
@@ -137,8 +137,8 @@ const Entregar =()=>{
         var error = false;
         const tarea = await privateAxios.put("/api/v1/tareas/updateentregable",{
             params:{
-                idclas:"6225659f6208d12d1cdce801", 
-                idest:"622541aef1bd3418216d8831"
+                idclas:idClase, 
+                idest:idEstudiante,
             },
             body:{
                 numeroTarea: numTarea, 
@@ -173,8 +173,8 @@ const Entregar =()=>{
         e.preventDefault();
         const del  =  await privateAxios.delete('/api/v1/tareas/deleteentregable',{
             params:{
-                idclas:"6225659f6208d12d1cdce801", 
-                idest:"622541aef1bd3418216d8831",
+                idclas:idClase, 
+                idest:idEstudiante,
                 numeroTarea:numTarea
             }
         }).then((res)=>{console.log(res)})

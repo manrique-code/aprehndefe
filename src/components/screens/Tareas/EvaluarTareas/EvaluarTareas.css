@@ -1,0 +1,110 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: Century 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+body{
+    background-color: rgb(218, 218, 218);
+}
+
+.container{
+    background-color: rgba(204, 204, 204, 0);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.container-body{
+    background-color: rgba(255, 255, 255, 0);
+    margin-top: 30px;
+    padding: 5px;
+    width: 90%;
+    min-height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+
+.descripcion-tarea{
+    background-color: rgb(255, 255, 255);
+    height: 600px;
+    width: 400px;
+    float: left;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.entregable-tarea{
+    background-color:rgb(255, 255, 255);
+    height: 600px;
+    float: left;
+    width: 900px;
+    margin-left: 10px;
+    padding: 20px;
+    border-radius: 10px;
+
+    
+    align-items: center;
+
+}
+
+.titulo{
+    color: rgb(107, 107, 107);
+}
+.subtitulo{
+    color: rgb(78, 78, 78);
+    padding-top: 5px;
+}
+
+.descripcion{
+    text-align: justify;
+    padding-top: 5px;
+}
+
+.puntaje{
+    color: rgb(93, 93, 196);
+    padding-top: 5px;
+}
+
+.tiempo-restante{
+    color: rgb(241, 35, 35);
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+.entregable-tarea h1{
+    margin-bottom: 30px;
+}
+
+.tittle{
+    padding-left: 40px;
+    margin-bottom: 20px;
+}
+
+.back{
+    height: 40%;
+    align-items:center;
+    display: flex;
+}
+
+.btn-back{
+    margin-top: 50%;
+    margin-left: 70%;
+    width: 40%;
+    /* margin: 10px; */
+    padding: 5px;
+    font-family: DM;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: white;
+    color: rgb(51, 111, 240);
+    border-radius: 7px;
+    border: 2px solid rgb(51, 111, 240);
+}

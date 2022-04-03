@@ -7,6 +7,7 @@ import "./assets/css/fonts.css";
 import store from "./store/index";
 import Entregar from "./components/screens/Tareas/EntregarTareas/EntregarTareas.js";
 import Login from "./components/screens/LoginSignIn/LoginSignIn";
+import Evaluar from "./components/screens/Tareas/EvaluarTareas/EvaluarTareas";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/tareas/entregar" element={<Entregar />} />
+          <Route path="/tareas/evaluar" element={<Evaluar />} />
         </Routes>
       </BrowserRouter>
     </Provider>
