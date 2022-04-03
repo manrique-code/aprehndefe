@@ -1,0 +1,79 @@
+:root {
+  --button-primary-background: #0071e3;
+  --button-hover-primary-background: hsl(210, 100%, 50%);
+  --button-secondary-background: white;
+  --button-hover-secondary-background: rgba(219, 72, 57, 0.2);
+  --button-primary-color: white;
+  --button-secondary-color: #db4839;
+  --input-background-color: #f4f3f4;
+  --input-border-color: #f0f0f0;
+
+  --animation-time: 0.4s;
+  --animation-style: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  --animation-button-bg: ease-in-out;
+}
+
+.input-action-container {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.input-action-label {
+  font-weight: bold;
+  margin-bottom: 1em;
+  font-size: 1.5rem;
+}
+
+.input-action-form-container {
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  display: flex;
+  flex-flow: row nowrap;
+  overflow: hidden;
+  transition: border var(--animation-time) var(--animation-button-bg);
+}
+
+.input-action-form-container.active {
+  border-color: var(--button-primary-background);
+}
+
+.input-action-form-container.lg {
+  width: 100%;
+}
+.input-action-form-container.md {
+  width: 40ch;
+}
+
+.input-action-input {
+  padding: 0.5em;
+  margin: 0;
+  font-size: 1em;
+  border: none;
+  outline: none;
+  background-color: var(--input-background-color);
+  width: 100%;
+  caret-color: var(--button-primary-background);
+}
+
+.input-action-button {
+  font-size: 1em;
+  background-color: var(--button-primary-background);
+  border: none;
+  color: var(--button-primary-color);
+  font-weight: bold;
+  padding: 1em 0.5em;
+  width: 10em;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  cursor: pointer;
+  transition: background-color var(--animation-time) var(--animation-button-bg);
+}
+
+@media (hover: hover) {
+  .input-action-button:hover {
+    background-color: var(--button-hover-primary-background);
+  }
+}
