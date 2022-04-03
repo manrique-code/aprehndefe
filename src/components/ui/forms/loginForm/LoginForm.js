@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 import {
   faArrowRight,
   faAt,
   faE,
   faEye,
 } from "@fortawesome/free-solid-svg-icons";
-import { library } from "@fortawesome/fontawesome-svg-core";
+// import { library } from "@fortawesome/fontawesome-svg-core";
 import { publicAxios } from "../../../../lib/apiClient";
 
 import "./LoginForm.css";
 import Text from "../../inputs/text/Text";
-import Button from "../../buttons/Button";
-library.add(faArrowRight, faAt, faEye);
+import Button from "../../buttons/cta/Button";
+import ButtonRedirecter from "../../buttons/redirecter/ButtonRedirecter";
+// library.add(faArrowRight, faAt, faEye);
 
 export const LoginForm = () => {
   const [txtCorreo, setTxtCorreo] = useState("");
@@ -54,6 +56,9 @@ export const LoginForm = () => {
       dispatch({ type: "ON_LOGIN_ERROR", payload: { errors: [70] } });
     }
   };
+  const signUpRedirect = (tipo) => {
+    dispatch({ type: "ON_SIGNUP_TYPE", payload: { tipo } });
+  };
   return (
     <section className="login-form-container">
       <h1 className="login-form-title">Iniciá sesión</h1>
@@ -79,19 +84,11 @@ export const LoginForm = () => {
         inputIcon={faEye}
         marginBottom="2rem"
         buttonLabel={
-          <Button
-            type="terciary"
-            label="Olvidé la contraseña"
-            style={{
-              fontSize: "1rem",
-              margin: "none",
-              height: "20px",
-              width: "auto",
-              borderRadius: "0px",
-            }}
-            callback={() => {
-              alert("Hola desde olvidé la contraseña!");
-            }}
+          <ButtonRedirecter
+            to="/signup"
+            callback={() => alert("Hola mundo!")}
+            label="Olvidé mi contraseña"
+            marginBottom="0px"
           />
         }
       />
@@ -104,20 +101,20 @@ export const LoginForm = () => {
       />
       <div className="separator"></div>
       <div className="login-form-signin">
-        <span className="login-form-signin">¿No tenés cuenta?</span>
-        <Button
-          type="terciary"
-          label="Crear cuenta aquí"
-          style={{
-            fontSize: "1rem",
-            margin: "none",
-            height: "20px",
-            width: "auto",
-            borderRadius: "0px",
-          }}
-          callback={() => {
-            alert("Hola desde el botón de registro!");
-          }}
+        <span className="login-form-signin" style={{ marginBottom: "1rem" }}>
+          ¿No tenés cuenta?
+        </span>
+        <ButtonRedirecter
+          to="/signup"
+          callback={() => signUpRedirect("DOCENTE")}
+          label="Crear cuenta de docente"
+          marginBottom="1rem"
+        />
+        <ButtonRedirecter
+          to="/signup"
+          label="Crear cuenta de estudiante"
+          callback={() => signUpRedirect("ESTUDIANTE")}
+          marginBottom="1rem"
         />
       </div>
     </section>
