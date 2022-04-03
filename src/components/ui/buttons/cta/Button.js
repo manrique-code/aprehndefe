@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Button.css";
 
 const Button = ({
@@ -21,11 +21,11 @@ const Button = ({
       href="#"
     >
       <span className="button-title">{label}</span>
-      <FontAwesomeIcon
+      {/* <FontAwesomeIcon
         className="button-icon"
         icon={hasIcon && icon}
         style={{ marginLeft: "0.5em" }}
-      />
+      /> */}
     </a>
   );
 };
