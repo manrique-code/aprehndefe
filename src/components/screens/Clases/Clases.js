@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { privateAxios } from '../../../lib/apiClient';
 import './Clases.css'
 import flecha from "../../../assets/img/classImg/flecha.png";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const Clases = () =>{
@@ -10,6 +10,8 @@ const Clases = () =>{
     const [clases,setClases]=useState([])
     const [tareas,setTareas]=useState([])
     
+    const navegate = useNavigate()
+
     const  [clase,setClase] =useState("")
     const  [nombre,setNombre] =useState("")
     const  [seccion,setSeccion] =useState("")
@@ -89,7 +91,9 @@ const Clases = () =>{
                 {/* <h3 className="subtitulo">Estado</h3> 
                 <p className={entregada?"entregado":"pendiente"}>{entregada?"Entregado":"Sin Entregar"}</p> */}
                 <div className="regresar">
-                    <button className="btn-regresar">Regresar</button>
+                    <button className="btn-regresar" onClick={() => {
+                        navegate(-1)
+                    }}>Regresar</button>
                 </div>
           </div>
         </div>
@@ -123,7 +127,7 @@ const Card = ({data, idEstudiante}) =>{
               </div>
             </div>
                 <Link to={`/clases/actividades/${idClase}/${idEstudiante}`}>
-                    <button className='btn-verclass'>
+                    <button className='btn-verclass' >
                         Ver clase
                     </button>
                 </Link>
