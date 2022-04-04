@@ -2,7 +2,7 @@ import { useState,useEffect } from "react";
 import "./actividades.css";
 import { privateAxios, publicAxios } from "../../../lib/apiClient";
 import ScrollActiviades from "../../ui/scroll/ScrollActividades";
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 
 const ActiviadesClase =()=>{
     //DATA DE PRUEBA
@@ -17,6 +17,8 @@ const ActiviadesClase =()=>{
     const  [seccion,setSeccion] =useState("")
     const  [identidad,setIndentidad] = useState("")
     const  [tareas,setTareas] = useState([])
+    const [horaInicio,setHoraInicio]=useState("")
+    const [horaFin,setHoraFin]=useState("")
 
 
     useEffect(()=>{
@@ -37,6 +39,13 @@ const ActiviadesClase =()=>{
                 setClase(claseData.nombre)
                 setSeccion(claseData.seccion)
                 setTareas(claseData.tareaAsignada)
+                const hor = claseData.horario
+                const hi = hor.hora[0].toString().split("")
+                const hf = hor.hora[1].toString().split("")
+
+                setHoraInicio(`${hi[0]}${hi[1]}:${hi[2]}${hi[3]}`)
+                setHoraFin(`${hf[0]}${hf[1]}:${hf[2]}${hf[3]}`)
+                
             })
 
         }
@@ -48,14 +57,21 @@ const ActiviadesClase =()=>{
             <div className="container">
                     <div className="container-body">
                     
-                        <div className="descripcion-tarea">
-                        <h2 className="titulo">Clase:</h2>
-                            <h2 className="titulo"><b>{clase}</b></h2>
+                        <div className="descripcion-clase">
+                        <h2 className="titulo-activ">Clase:</h2>
+                            <h3 className="titulo-activ"><b>{clase}</b></h3>
                             <br/>
-                            <h3 className="subtitulo">Seccion: <b>{seccion}</b></h3>  
-                            
+                            <h3 className="subtitulo">Seccion </h3>  
+                            <p className="puntaje">
+                                <b>{seccion}</b>
+                            </p>
                             <br/>
-                            <h3 className="subtitulo">Alumno:</h3>
+                            <h3 className="subtitulo">Horario</h3> 
+                            <p className="puntaje">
+                                Comienza: {horaInicio}<br/>Termina:  {horaFin}
+                            </p>
+                            <br></br>
+                            <h3 className="subtitulo">Alumno</h3>
                             <p className="puntaje">
                                 {nombre} 
                             </p>
@@ -67,15 +83,17 @@ const ActiviadesClase =()=>{
                             <br></br>
                             {/* <h3 className="subtitulo">Estado</h3> 
                             <p className={entregada?"entregado":"pendiente"}>{entregada?"Entregado":"Sin Entregar"}</p> */}
-                            <div className="back">
-                                <button className="btn-back">Regresar</button>
+                            <div className="back-clases">
+                                <Link to={'/Clases'}>
+                                <button className="btn-back-clases">REGRESAR</button>
+                                </Link>
                             </div>
                         </div>
 
 
-                        <div className="entregable-tarea">
-                        <div className="tittle">
-                                <h2><b>10</b> Actividades Asignadas </h2>
+                        <div className="actividades-clase">
+                        <div className="titulo-activ">
+                                <h2><b>{tareas.length}</b> Actividades Asignadas </h2>
                             </div>
                             <ScrollActiviades tareas={tareas} idestudiante={idEstudiante} idclase={idClase}/>
                         </div>

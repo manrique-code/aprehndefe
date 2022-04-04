@@ -18,11 +18,10 @@ const Entregar =()=>{
     const [tiempo,setTiempo] = useState("");
     const [entregada,setEntregada] = useState(false);
     const [enviado,setEnviado] = useState(true);
-
-    const inicialCargado = "Arrastra y Suelta el archivo, o bien da click para buscar el archivo"
-
     const [cargado,setCargado] = useState(inicialCargado);
 
+    //APARTADO DE CAPTURA DE DOCUMENTO PDF
+    const inicialCargado = "Arrastra y Suelta el archivo, o bien da click para buscar el archivo"
     const inicialArchivo = {
         archivo:null,
         archivoNombre:'',
@@ -79,7 +78,7 @@ const Entregar =()=>{
                 }
             ).then((response)=>{
                 const tarea = response.data.rslt[0];
-                console.log(tarea)
+                // console.log(tarea)
                 setTitulo(tarea.info.titulo)
                 setDescripcion(tarea.info.descripcion)
                 setPuntaje(tarea.info.Puntaje)
@@ -96,9 +95,7 @@ const Entregar =()=>{
     const clickEntregar = async(e) =>{
 
         e.preventDefault();
-        //SE CONFIGURA EL ARCHIVO DE LA TAREA
-        const fd = new FormData()
-        fd.append('file',archivo.archivo,archivo.archivoNombre);
+        
         var error = false;
         const tarea = await privateAxios.put("/api/v1/tareas/newentregable",{
             params:{
@@ -112,14 +109,19 @@ const Entregar =()=>{
                 fechaEntrega:new Date(Date.now()).toISOString()
             }
         }).then((response)=>{
-            console.log(response)})
+            // console.log(response)
+        })
         .catch((err)=>{
             console.log(err)
             error=true
         });
         
         
-        // SE ENVIA LA TAREA
+        //SE CONFIGURA EL ARCHIVO DE LA TAREA
+        const fd = new FormData()
+        fd.append('file',archivo.archivo,archivo.archivoNombre);
+
+        // SE ENVIA LA TAREA SI NO HAY ERROR
         if(!error){
             const fl = await privateAxios.post('/api/v1/tareas/file',fd,{
                 onUploadProgress: progressEvent =>{
@@ -128,7 +130,7 @@ const Entregar =()=>{
             })
             setArchivo(inicialArchivo);
             setCargado(inicialCargado)
-            console.log(archivo)
+            alert("En hora buena! Se ha enviado tu Tarea")
 
         }
         setEnviado(!enviado)
@@ -175,16 +177,19 @@ const Entregar =()=>{
     }
     
     const clickEliminar =async(e)=>{
-        e.preventDefault();
-        const del  =  await privateAxios.delete('/api/v1/tareas/deleteentregable',{
-            params:{
-                idclas:idClase, 
-                idest:idEstudiante,
-                numeroTarea:numTarea
-            }
-        }).then((res)=>{console.log(res)})
-        .catch((err)=>{console.log(err)})
-        setEnviado(!enviado)
+        const rp = window.confirm("Deseas eliminar La tarea?")
+        if(rp){
+            e.preventDefault();
+            const del  =  await privateAxios.delete('/api/v1/tareas/deleteentregable',{
+                params:{
+                    idclas:idClase, 
+                    idest:idEstudiante,
+                    numeroTarea:numTarea
+                }
+            }).then((res)=>{console.log(res)})
+            .catch((err)=>{console.log(err)})
+            setEnviado(!enviado)
+        }
     }
     
 
@@ -242,20 +247,22 @@ const Entregar =()=>{
                                 </div>
                             </div>
                             <div className="btn-group">
-                                <button className="btn-cancel" onClick={()=>{navigate(-1)}}>Cancelar</button>
+                                <button className="btn-cancel" onClick={()=>{navigate(-1)}}>REGRESAR</button>
                                 <button className="btn-up"
                                     style={entregada?{display:"none"}:{}}
                                     onClick={(e)=>{
                                         clickEntregar(e)
                                     }}
-                                >Enviar Tarea</button>
+                                >ENVIAR</button>
 
                                 <button className="btn-update"
                                     style={!entregada?{display:"none"}:{}}
                                     onClick={(e)=>{
-                                        clickActualizar(e)
+                                        if(window.confirm("Deseas guardar los cambios?")){
+                                            clickActualizar(e)
+                                        }
                                     }}
-                                >Actualizar Tarea
+                                >ACTUALIZAR
                                 </button>
 
                                 <button className="btn-del"
@@ -263,7 +270,7 @@ const Entregar =()=>{
                                     onClick={(e)=>{
                                         clickEliminar(e);
                                     }}
-                                >Eliminar Tarea</button>
+                                >ELIMINAR</button>
                             </div>
                             <br></br>
                         </div>

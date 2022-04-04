@@ -65,7 +65,7 @@ const Evaluar = () =>{
             <div className="container">
                     <div className="container-body">
                     
-                        <div className="descripcion-tarea">
+                        <div className="descripcion-info-clase">
                             <h2 className="titulo">Clase:</h2>
                             <h2 className="titulo"><b>{clase}</b></h2>
                             <br/>
@@ -90,9 +90,9 @@ const Evaluar = () =>{
                         </div>
 
 
-                        <div className="entregable-tarea">
+                        <div className="entregable-tarea-view">
                             <div className="tittle">
-                                <h2><b>{cant}</b> Tareas Entregadas </h2>
+                                <h2><b>{tareas.length}</b> Tareas Entregadas </h2>
                             </div>
                             <ScrollViewTareas array={tareas}/>
                         </div>

@@ -32,26 +32,27 @@ body{
 }
 
 
-.descripcion-tarea{
-    background-color: rgb(233, 233, 233);
+.descripcion-info-clase{
+    background-color: rgb(255, 255, 255);
     height: 600px;
     width: 400px;
     float: left;
     padding: 40px;
     border-radius: 10px;
+
+    border: 1px solid #0071e3;
 }
 
-.entregable-tarea{
-    background-color:rgb(233, 233, 233);
+.entregable-tarea-view{
+    background-color:rgb(255, 255, 255);
     height: 600px;
     float: left;
     width: 900px;
     margin-left: 10px;
     padding: 20px;
     border-radius: 10px;
-
-    
     align-items: center;
+    border: 1px solid #0071e3;
 
 }
 

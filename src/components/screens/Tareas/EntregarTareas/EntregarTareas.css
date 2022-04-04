@@ -39,6 +39,7 @@ body{
     float: left;
     padding: 40px;
     border-radius: 10px;
+    border: 1px solid #0071e3;
 }
 
 .entregable-tarea{
@@ -49,6 +50,7 @@ body{
     margin-left: 10px;
     padding: 40px;
     border-radius: 10px;
+    border: 1px solid #0071e3;
 }
 
 .titulo{
@@ -164,7 +166,7 @@ body{
 }
 .image-upload-wrap:hover {
     background-color: transparent;
-    border: 4px dashed #3692ee;
+    border: 3px dashed #3692ee;
 }
 .text-information {
     margin-top: 100px;
