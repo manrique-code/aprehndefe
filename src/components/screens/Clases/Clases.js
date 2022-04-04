@@ -54,7 +54,7 @@ const Clases = () =>{
 
     const cargarCard = () =>{
         return  clases.map((dato) =>{
-            return (<Card data={dato}></Card>)
+            return (<Card data={dato} idEstudiante={idEstudiante}></Card>)
         })
     }
 
@@ -102,10 +102,12 @@ const Clases = () =>{
   );
 }
 
-const Card = ({data}) =>{
+const Card = ({data, idEstudiante}) =>{
     const imageUrl='https://static6.depositphotos.com/1012885/565/i/450/depositphotos_5653101-stock-photo-backgrounds-book-cover.jpg'
     const title = data.nombre
     const seccion= data.seccion
+    const idClase = data._id
+    console.log(idClase)
     return(
      <>
      <div className='card-container'>
@@ -120,7 +122,7 @@ const Card = ({data}) =>{
                 <p>{seccion}</p>
               </div>
             </div>
-                <Link to={`/clases/actividades`}>
+                <Link to={`/clases/actividades/${idClase}/${idEstudiante}`}>
                     <button className='btn-verclass'>
                         Ver clase
                     </button>

@@ -24,7 +24,7 @@ function App() {
           <Route path="/signup/success" element={<SignupSuccess />} />
           <Route path="/tareas/entregar/:numTarea/:idClase/:idEstudiante" element={<Entregar />} />
           <Route path="/tareas/evaluar" element={<Evaluar />} />
-          <Route path="/clases/actividades" element={<ActiviadesClase />} />
+          <Route path="/clases/actividades/:idClase/:idEstudiante" element={<ActiviadesClase />} />
           <Route path="/clases" element={<Clases />} />
         </Routes>
       </BrowserRouter>

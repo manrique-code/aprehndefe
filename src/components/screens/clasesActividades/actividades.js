@@ -2,11 +2,15 @@ import { useState,useEffect } from "react";
 import "./actividades.css";
 import { privateAxios, publicAxios } from "../../../lib/apiClient";
 import ScrollActiviades from "../../ui/scroll/ScrollActividades";
+import { useParams } from "react-router-dom";
 
 const ActiviadesClase =()=>{
     //DATA DE PRUEBA
-    const idClase = "6225659f6208d12d1cdce801"
-    const idEstudiante = "622541aef1bd3418216d8831"
+    //const idClase = "6225659f6208d12d1cdce801"
+    //const idEstudiante = "622541aef1bd3418216d8831"
+
+    const {idClase, idEstudiante} = useParams()
+    
 
     const  [clase,setClase] =useState("")
     const  [nombre,setNombre] =useState("")
