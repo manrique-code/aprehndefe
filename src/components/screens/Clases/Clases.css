@@ -3,7 +3,7 @@
     box-shadow: 0px 0px 15px -5px;
     transition: 0.3s;
     animation: ease-in;
-    margin: 30px;
+    margin: 10px;
     max-width: 270px;
     border-radius: 10px;
     border: 2px solid #0071e3;
@@ -41,8 +41,8 @@ td {
 
 .container-total{
     background-color: rgba(255, 255, 255, 0);
-    padding: 0px;
-    width: 95%;
+    /* padding: 40px; */
+    width: 100%;
     min-height: 100%;
     align-items: center;
     display: flex;
@@ -52,35 +52,40 @@ td {
 .container-tareas{
     background-color: rgba(255, 255, 255, 0);
     width: 20%;
-    margin-left: 20px;
-    max-height: 800px;
+    padding-top: 20px;
+    max-height: 600px;
     align-items: center;
     display: flex;
     flex-wrap: wrap;
     float: left;
+    margin-left: 40px;
 }
 .container-cards{
     background-color: rgba(255, 255, 255, 0);
     width: 70%;
-    max-height: 800px;
+    max-height: 650px;
     align-items: center;
     display: flex;
     flex-wrap: wrap;
     overflow-y: scroll;
     float: left;
     scrollbar-width: none;
+    padding: 15px;
+    margin-left:40px;
+    padding-left: 30px;
 }
 
 
-.des-tareas{
+.des-info{
     background-color: rgb(255, 255, 255);
     width: 320px;
-    height: 700px;
+    height: 600px;
     float: left;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0px 0px 15px 0px;
+    /* box-shadow: 0px 0px 15px 0px; */
     margin-left: 0px;
+    border: 1px solid #0071e3
 }
 
 .card-container:hover{
@@ -150,4 +155,19 @@ h4,p{
     background: #0071e3;
     transform: scale(1);
     color: white;
+}
+
+.regresar{
+    margin-top: 65%;
+}
+
+.btn-regresar{
+    margin-top: 50px;
+    margin-left: 60%;
+    font-size: large;
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    border: 2px solid #0071e3;
+    color: #0071e3;;
 }

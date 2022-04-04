@@ -9,7 +9,12 @@ const Clases = () =>{
     const  idEstudiante = "622541aef1bd3418216d8831"
     const [clases,setClases]=useState([])
     const [tareas,setTareas]=useState([])
-
+    
+    const  [clase,setClase] =useState("")
+    const  [nombre,setNombre] =useState("")
+    const  [seccion,setSeccion] =useState("")
+    const  [identidad,setIndentidad] = useState("")
+    const  [email,setEmail] = useState("")
 
 
 
@@ -33,6 +38,16 @@ const Clases = () =>{
             })
         }
         loadClases();
+        const infoEst  = async()=>{
+            const data = await privateAxios(`/api/v1/estudiantes/verestudiante/${idEstudiante}`)
+            .then((response)=>{
+                const estuData = response.data.rslt
+                setNombre(estuData.nombres+" "+estuData.apellidos)
+                setIndentidad(estuData.identidad)
+                setEmail(estuData.usuario.email)
+            })
+        }
+        infoEst()
     },[])
 
 
@@ -48,32 +63,38 @@ const Clases = () =>{
     return(
     <>
     <div className='container-total'>
+        
+        <div className='container-tareas'> 
+            <div className="des-info">
+            <h2 className="titulo">Clase</h2>
+                <h2 className="titulo"><b>{clase}</b></h2>
+                <br/> 
+                
+                <br/>
+                <h3 className="subtitulo">Alumno:</h3>
+                <p className="puntaje">
+                    {nombre} 
+                </p>
+                <br/>
+                <h3 className="subtitulo">Identidad</h3> 
+                <p className="puntaje">
+                    {identidad}
+                </p>
+                <br></br>
+                <h3 className="subtitulo">Email</h3> 
+                <p className="puntaje">
+                    {email}
+                </p>
+                <br></br>
+                {/* <h3 className="subtitulo">Estado</h3> 
+                <p className={entregada?"entregado":"pendiente"}>{entregada?"Entregado":"Sin Entregar"}</p> */}
+                <div className="regresar">
+                    <button className="btn-regresar">Regresar</button>
+                </div>
+          </div>
+        </div>
         <div className='container-cards'>
             {cargarCard()}
-        </div>
-        <div className='container-tareas'> 
-            <div className="des-tareas">
-                <h2 className="titulo">Tarea</h2>
-                {/* crad 1 de tarea */}
-                <div className='tarea-content1'>
-                    <div className='tarea-content'>
-                        <div className='tarea-descrip'>
-                            <h3>Informacion de la tarea</h3>
-                        </div>
-                        <div className='tarea-boy'>
-                            <table>
-                                <tr>
-                                    <td>Puntos</td>
-                                    <td>Entrega:</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <button className='btn-tareas'>
-                        Ver tarea
-                    </button>
-              </div>
-          </div>
         </div>
         
     </div>
