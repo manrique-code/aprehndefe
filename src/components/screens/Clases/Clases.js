@@ -66,7 +66,7 @@ const Clases = () =>{
         
         <div className='container-tareas'> 
             <div className="des-info">
-            <h2 className="titulo">Clase</h2>
+            <h2 className="titulo">Clases</h2>
                 <h2 className="titulo"><b>{clase}</b></h2>
                 <br/> 
                 
