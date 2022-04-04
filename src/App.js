@@ -12,6 +12,7 @@ import Evaluar from "./components/screens/Tareas/EvaluarTareas/EvaluarTareas";
 import SignUp from "./components/screens/SignUp/SignUp";
 import SignupSuccess from "./components/screens/States/SignupSuccess/SignupSuccess";
 import ActiviadesClase from "./components/screens/clasesActividades/actividades";
+import Clases from "./components/screens/Clases/Clases";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/tareas/entregar/:numTarea/:idClase/:idEstudiante" element={<Entregar />} />
           <Route path="/tareas/evaluar" element={<Evaluar />} />
           <Route path="/clases/actividades" element={<ActiviadesClase />} />
+          <Route path="/clases" element={<Clases />} />
         </Routes>
       </BrowserRouter>
     </Provider>
