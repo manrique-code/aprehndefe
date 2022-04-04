@@ -33,7 +33,7 @@ body{
 
 
 .descripcion-tarea{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(233, 233, 233);
     height: 600px;
     width: 400px;
     float: left;
@@ -42,7 +42,7 @@ body{
 }
 
 .entregable-tarea{
-    background-color:rgb(255, 255, 255);
+    background-color:rgb(233, 233, 233);
     height: 600px;
     float: left;
     width: 900px;

@@ -11,6 +11,7 @@ import Login from "./components/screens/LoginSignIn/LoginSignIn";
 import Evaluar from "./components/screens/Tareas/EvaluarTareas/EvaluarTareas";
 import SignUp from "./components/screens/SignUp/SignUp";
 import SignupSuccess from "./components/screens/States/SignupSuccess/SignupSuccess";
+import ActiviadesClase from "./components/screens/clasesActividades/actividades";
 
 function App() {
   return (
@@ -20,8 +21,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/signup/success" element={<SignupSuccess />} />
-          <Route path="/tareas/entregar" element={<Entregar />} />
+          <Route path="/tareas/entregar/:numTarea/:idClase/:idEstudiante" element={<Entregar />} />
           <Route path="/tareas/evaluar" element={<Evaluar />} />
+          <Route path="/clases/actividades" element={<ActiviadesClase />} />
         </Routes>
       </BrowserRouter>
     </Provider>

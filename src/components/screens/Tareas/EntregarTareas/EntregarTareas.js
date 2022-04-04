@@ -1,11 +1,16 @@
 import { useState,useEffect } from "react";
 import "./EntregarTareas.css";
 import { privateAxios, publicAxios } from "../../../../lib/apiClient";
+import { useParams, useNavigate } from "react-router-dom";
 
 const Entregar =()=>{
-    const idClase = "6225659f6208d12d1cdce801"
-    const idEstudiante = "622541aef1bd3418216d8831"
-    const numTarea = "HW17_3_638"    //HW17_3_580 //HW17_3_902 //HW17_3_638
+    // OBTENER LOS DATOS ENVIADOS POR LA VIEW ANTERIOR
+    const {numTarea,idClase,idEstudiante} = useParams()
+    const navigate = useNavigate()
+    
+
+    // const idClase = "6225659f6208d12d1cdce801"
+    // const idEstudiante = "622541aef1bd3418216d8831"
 
     const [descripcion, setDescripcion] = useState("");
     const [titulo, setTitulo] = useState("");
@@ -237,7 +242,7 @@ const Entregar =()=>{
                                 </div>
                             </div>
                             <div className="btn-group">
-                                <button className="btn-cancel">Cancelar</button>
+                                <button className="btn-cancel" onClick={()=>{navigate(-1)}}>Cancelar</button>
                                 <button className="btn-up"
                                     style={entregada?{display:"none"}:{}}
                                     onClick={(e)=>{
