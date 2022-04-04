@@ -18,10 +18,11 @@ const Entregar =()=>{
     const [tiempo,setTiempo] = useState("");
     const [entregada,setEntregada] = useState(false);
     const [enviado,setEnviado] = useState(true);
-    const [cargado,setCargado] = useState(inicialCargado);
+    
 
     //APARTADO DE CAPTURA DE DOCUMENTO PDF
     const inicialCargado = "Arrastra y Suelta el archivo, o bien da click para buscar el archivo"
+    const [cargado,setCargado] = useState(inicialCargado);
     const inicialArchivo = {
         archivo:null,
         archivoNombre:'',
