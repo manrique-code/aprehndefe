@@ -4,12 +4,17 @@ import PropTypes from "prop-types";
 import "./InputAction.css";
 
 const InputAction = ({
+  id,
   buttonLabel,
   placeHolder,
   size,
   label,
   titleLabel,
   onclick,
+  onChange,
+  onKeyUp,
+  onKeyPress,
+  value,
   styles,
 }) => {
   const [estaInputActivo, setEstaInputActivo] = useState(false);
@@ -31,7 +36,13 @@ const InputAction = ({
           type="text"
           className={`input-action-input`}
           placeholder={placeHolder}
+          value={value}
           style={styles}
+          onKeyUp={onKeyUp}
+          onKeyDown={onKeyPress}
+          onChange={onChange}
+          name={id}
+          id={id}
           onFocus={() => setEstaInputActivo(true)}
           onBlur={() => setEstaInputActivo(false)}
         />
